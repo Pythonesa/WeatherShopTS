@@ -1,0 +1,183 @@
+@font-face {
+    font-family: "Quicksand";
+    src: url(/fonts/Quicksand-VariableFont_wght.ttf);
+}
+
+:root{
+    --green: #ceddbf;
+    --blue: #3e7ef5;
+    --dark-green: #89bbc2;
+    --pastel-blue: #7ea4d1;
+}
+
+body{
+    margin: 0;
+    font-family: Quicksand;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--green);
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--blue);
+    color: whitesmoke;
+    padding: 0.5rem;
+    gap: 1rem;
+}
+
+header a{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: var(--green);
+}
+
+header nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    gap: 1rem;
+    width: 100%;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: var(--pastel-blue);
+    border-radius: 1rem;
+    box-shadow: var(--dark-green) 0px 5px 15px;
+}
+
+.card-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.add-to-cart, .emptyCart{
+    background-color: var(--blue);
+    color: whitesmoke;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    box-shadow: var(--dark-green) 0px 5px 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+.add-to-cart:hover{
+    background-color: var(--dark-green);
+    color: var(--green);
+    transition: all 0.3s ease-in-out;
+}
+
+.add-to-cart:active, .emptyCart:hover{
+    background-color: var(--green);
+    color: var(--blue);
+    transition: all 0.3s ease-in-out;
+}
+
+#cart{
+    background-color: var(--dark-green);
+    color: black;
+    padding: 1rem;
+    border-radius: 0.1rem;
+    box-shadow: var(--blue) 0px 5px 15px;
+    position: absolute;
+    padding: 0.5rem;
+    top: 3rem;
+    right: 3rem;
+    display: none;
+}
+
+.cart-icon:hover + #cart {
+    display: block;
+}
+
+#cart:hover{
+    display: block;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-table td{
+    text-align: center;
+}
+
+.cart-table th, .cart-table td{
+    padding: 0.5rem;
+}
+
+.addFromCart, .removeFromCart{
+    background-color: var(--blue);
+    color: whitesmoke;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 100%;
+    width: 2rem;
+    cursor: pointer;
+    box-shadow: var(--dark-green) 0px 5px 15px;
+    transition: all 0.3s ease-in-out;
+    margin: 0.5rem;
+}
+
+.addFromCart:hover, .removeFromCart:hover{
+    background-color: var(--green);
+    color: var(--blue);
+    transition: all 0.3s ease-in-out;
+}
+
+.cart-table img{
+    height: 4rem;
+}
+
+.removeAllFromCart{
+    background-color: var(--blue);
+    color: rgb(244, 171, 171);
+    border: none;
+    padding: 0.5rem;
+    border-radius: 100%;
+    width: 2rem;
+    cursor: pointer;
+    box-shadow: var(--dark-green) 0px 5px 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+.removeAllFromCart:hover{
+    background-color: var(--green);
+    color: red;
+    transition: all 0.3s ease-in-out;
+}
