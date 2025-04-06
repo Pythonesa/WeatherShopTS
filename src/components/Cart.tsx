@@ -1,3 +1,5 @@
+import type { Product, CartProps } from "../types";
+
 export default function Cart({
   cart,
   removeFromCart,
@@ -6,7 +8,7 @@ export default function Cart({
   emptyCart,
   total,
   isEmpty,
-}) {
+} : CartProps) {
   if (!isEmpty) {
     return (
       <>
@@ -21,7 +23,7 @@ export default function Cart({
             </tr>
           </thead>
           <tbody>
-            {cart.map((product) => (
+            {cart.map((product : Product) => (
               <tr key={product.id}>
                 <td>
                   <img src={`img/${product.image}.png`} alt={product.name} />

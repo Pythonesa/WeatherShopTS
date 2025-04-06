@@ -1,4 +1,11 @@
-export default function Card({ product, addToCart }) {
+import type { Product } from "../types";
+
+type CardProps = {
+  product: Product;
+  addToCart: (product: Product) => void;
+};
+
+export default function Card({ product, addToCart } : CardProps) {
   return (
     <section className="card">
       <div className="card-header">

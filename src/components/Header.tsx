@@ -1,4 +1,5 @@
 import Cart from "./Cart";
+import type { CartProps } from "../types";
 
 export default function Header({
   cart,
@@ -8,7 +9,7 @@ export default function Header({
   emptyCart,
   total,
   isEmpty
-}) {
+} : CartProps) {
 
   return (
     <header>
