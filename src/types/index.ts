@@ -4,6 +4,9 @@ export type Product = {
   image: string;
   description: string;
   price: number;
+};
+
+export type CartItem = Product & {
   quantity?: number;
 };
 
@@ -16,3 +19,7 @@ export type CartProps = {
   total: number;
   isEmpty: boolean;
 };
+
+export interface CartContext extends CartProps {
+  productsData: CartItem[]
+}

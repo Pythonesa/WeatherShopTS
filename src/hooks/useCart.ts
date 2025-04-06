@@ -1,8 +1,9 @@
 import { useState, useEffect, useMemo } from "react";
 import { products } from "../data/products";
-import type { Product } from "../types";
+import type { CartItem, CartContext } from "../types";
 
-export const useCart = () => {
+
+export const useCart = () : CartContext => {
   const [productsData] = useState(products);
   const [cart, setCart] = useState(() => {
     const savedCart = localStorage.getItem("cart");
@@ -13,8 +14,8 @@ export const useCart = () => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
-  function addToCart(product : Product) {
-    const index = cart.findIndex((item : Product) => item.id === product.id);
+  function addToCart(product : CartItem) {
+    const index = cart.findIndex((item : CartItem) => item.id === product.id);
     if (index >= 0) {
       const newCart = [...cart];
       newCart[index].quantity++;
@@ -24,8 +25,8 @@ export const useCart = () => {
     }
   }
 
-  function removeFromCart(product : Product) {
-    const index = cart.findIndex((item : Product) => item.id === product.id);
+  function removeFromCart(product : CartItem) {
+    const index = cart.findIndex((item : CartItem) => item.id === product.id);
     if (index >= 0) {
       const newCart = [...cart];
       newCart[index].quantity--;
@@ -36,15 +37,15 @@ export const useCart = () => {
     }
   }
 
-  function removeAllFromCart(product : Product) {
-    setCart(cart.filter((item : Product) => item.id !== product.id));
+  function removeAllFromCart(product : CartItem) {
+    setCart(cart.filter((item : CartItem) => item.id !== product.id));
   }
 
   function emptyCart() {
     setCart([]);
   }
 
-  const total = useMemo(() => cart.reduce((acc : number, product : Product) => acc + product.price * product.quantity!, 0), [cart]);
+  const total = useMemo(() => cart.reduce((acc : number, product : CartItem) => acc + product.price * product.quantity!, 0), [cart]);
   const isEmpty = useMemo(() => cart.length === 0, [cart]);
 
   return { productsData, cart, addToCart, removeFromCart, removeAllFromCart, emptyCart, total, isEmpty };
